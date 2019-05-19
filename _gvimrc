@@ -1,0 +1,236 @@
+" txt 色つけ
+if !exists("syntax_on")
+	syntax on
+endif
+
+colorscheme jellybeans
+
+augroup InsertMode
+	autocmd InsertLeave * hi CursorLine gui=bold
+	autocmd InsertEnter * hi CursorLine gui=underline
+augroup END
+
+augroup ColorSchmeGrp
+	autocmd!
+	autocmd ColorScheme * call ColorSchemeChg()
+
+	function! ColorSchemeChg()
+		" origを読み込んだときのみ
+		if g:colors_name == "jellybeans"
+			set number
+			set cursorline
+			if &filetype=="csv"
+			else
+				execute "set colorcolumn=" . join(range(81, 9999), ",")
+			endif
+		else
+			set nonumber
+			set nocursorline
+			set colorcolumn=0
+		endif
+	endfunction
+augroup END
+
+" コマンドラインの高さ
+set cmdheight=1
+
+" フォント設定
+"set guifont=Osaka－等幅:h10:cSHIFTJIS
+set guifont=Myrica_M:h10:cSHIFTJIS:qDRAFT
+
+nnoremap - :ZoomOut<CR>
+nnoremap + :ZoomIn<CR>
+
+" window サイズ設定
+augroup WindowSizeMod
+	set lines=45
+	set columns=100
+
+	autocmd!
+	function! LineMod(toggle)
+		if a:toggle==1
+			set lines+=5
+		else
+			set lines-=5
+		endif
+	endfunction
+
+	function! ColmMod(toggle)
+		if a:toggle==1
+			set columns+=5
+		else
+			set columns-=5
+		endif
+	endfunction
+	nnoremap <M-_>	:call LineMod(1)<CR>
+	nnoremap <M-->  :call LineMod(0)<CR>
+	nnoremap <M-+>	:call ColmMod(1)<CR>
+	nnoremap <M-=>  :call ColmMod(0)<CR>
+augroup END
+
+augroup teraterm
+	let w:screen_toggle=0
+	function! FullScreenToggle()
+		echo "test"
+		if w:screen_toggle==0
+			echo "FullScreen!!!!"
+			:ScreenMode 5
+			let w:screen_toggle=1
+		else
+			echo "Revert!!!!"
+			:Revert
+			let w:screen_toggle=0
+		endif
+	endfunction
+	nnoremap <M-CR> :call FullScreenToggle()<CR>
+	nnoremap <RightMouse> "*p 
+	nnoremap <M-v> "*p 
+	inoremap <RightMouse> <C-r><C-o>*
+	inoremap <M-v> <C-r><C-o>*
+augroup END
+set title
+
+" マウスの設定
+set mouse=a
+set ttymouse=xterm2
+set clipboard+=unnamed,autoselect
+
+"=======================================================
+" GUI MENU
+"=======================================================
+set guioptions+=a
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+set noscrollbind
+
+" Tab 改行文字表示
+"set list
+
+highlight WhitespaceEOL ctermbg=red guibg=#501010
+autocmd VimEnter,WinEnter * 1match WhitespaceEOL /\s\+$/
+
+highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+autocmd VimEnter,WinEnter * 2match ZenkakuSpace /　/
+
+"highlight ExtraSpace ctermbg=blue  guibg=#101050
+"autocmd VimEnter,WinEnter * 3match ExtraSpace /^\t*   \+/
+
+function! DeleteEndOfSpaces()
+	exe ':%s;\s\+$;;'
+endfunction
+command DeleteEOS call DeleteEndOfSpaces()
+
+function! s:Exec()
+	exe "!" . &ft . " %"
+:endfunction
+command! Exec call <SID>Exec()
+map <silent> <C-P> :call <SID>Exec()<CR>
+
+autocmd FileType txt iminsert=2
+
+" Unite
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+
+" 文字列リテラルをトグル
+" string → 'string' → "string" → string...
+"
+" string に記号が含まれている場合は
+" string → 'string'
+" の変換はうまくいかないかも
+let g:switch_custom_definitions =
+\[
+\   {
+\       'true\c' : 'false',
+\       'TRUE\c' : '\FALSE\c',
+\       'FALSE\c'  : 'TRUE',
+\       'false\c': 'true',
+\		'0' : '1',
+\		'1' : '0',
+\   }
+\ ]
+" 呼び出し用のキーマッピング
+"nnoremap ts :<C-u>Switch<CR>
+
+:let g:Align_xstrlen = 3
+" vim-indent-guide
+:let g:indent_guides_enable_on_vim_startup = 1
+
+"neocomplete.vim
+highlight Pmenu ctermbg=4
+highlight PmenuSel ctermbg=1
+highlight PMenuSbar ctermbg=4
+
+" 補完ウィンドウの設定
+set completeopt=menuone
+
+" rsenseでの自動補完機能を有効化
+let g:rsenseUseOmniFunc = 1
+" let g:rsenseHome = '/usr/local/lib/rsense-0.3'
+
+" auto-ctagsを使ってファイル保存時にtagsファイルを更新
+let g:auto_ctags = 1
+
+" 起動時に有効化
+let g:neocomplcache_enable_at_startup = 1
+
+" 大文字が入力されるまで大文字小文字の区別を無視する
+let g:neocomplcache_enable_smart_case = 1
+
+" _(アンダースコア)区切りの補完を有効化
+let g:neocomplcache_enable_underbar_completion = 1
+
+let g:neocomplcache_enable_camel_case_completion  =  1
+
+" 最初の補完候補を選択状態にする
+let g:neocomplcache_enable_auto_select = 1
+
+" ポップアップメニューで表示される候補の数
+let g:neocomplcache_max_list = 20
+
+" シンタックスをキャッシュするときの最小文字長
+let g:neocomplcache_min_syntax_length = 3
+
+" 補完の設定
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+
+if !exists('g:neocomplete#keyword_patterns')
+        let g:neocomplete#keyword_patterns = {}
+endif
+
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+let g:syntastic_mode_map = { 'mode': 'passive' }
+augroup AutoSyntastic
+  autocmd!
+  autocmd BufWritePost *.c,*.cpp call s:syntastic()
+augroup END
+function! s:syntastic()
+  SyntasticCheck
+  call lightline#update()
+endfunction
+
+" Disable automatic check at file open/close
+let g:syntastic_check_on_open=0
+let g:syntastic_check_on_wq=0
+" C
+let g:syntastic_c_check_header = 1
+" C++
+let g:syntastic_cpp_check_header = 1
+" Java
+let g:syntastic_java_javac_config_file_enabled = 1
+let g:syntastic_java_javac_config_file = "$HOME/.syntastic_javac_config"
