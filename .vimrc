@@ -76,7 +76,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'Shougo/vimshell'
 " from ai github
-NeoBundle 'git@160.203.82.105:haishi/GrepUnderCursor.vim.git'
+"NeoBundle 'git@160.203.82.105:haishi/GrepUnderCursor.vim.git'
 
 NeoBundleCheck
 
@@ -228,14 +228,14 @@ augroup Keyboard
 
 	function! USKeyboard()
 		" ' と : を入れ替え
-		nnoremap ' :
-		nnoremap : '
+"		nnoremap ' :
+"		nnoremap : '
 	endfunction
 
 	function! JPKeyboard()
 		" ' と : を入れ替え
-		nnoremap ' '
-		nnoremap : :
+"		nnoremap ' '
+"		nnoremap : :
 	endfunction
 
 	command! HardMode call HardMode()
@@ -496,34 +496,6 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 """"""""""""""""""""""""""""""
 
-" vim起動時にneocomplcacheを起動するか 1:有効 2:無効(初期値)
-let g:NeoComplCache_EnableAtStartup = 1
-" 入力に大文字が含まれている場合は、大文字・小文字を無視しない 1:有効 2:無効(初期値)
-let g:NeoComplCache_SmartCase = 1
-" ポップアップメニューで表示される候補の数
-let g:NeoComplCache_MaxList = 50
-" 単語の出現頻度だけではなく、前の単語とのつながりも考慮して候補の並び替えを行うかどうか 1:有効(初期値) 0:無効
-let g:NeoComplCache_PreviousKeywordCompletion = 1
-" プレビューウインドウが開いているとき、追加情報を表示するかどうか 1:有効 0:無効
-let g:NeoComplCache_EnableInfo = 1
-" 大文字を入力したときに、それを単語の区切りとしてあいまい検索を行うかどうか 1:有効 0:無効(初期値)
-let g:NeoComplCache_EnableCamelCaseCompletion = 1
-" _を入力したときに、それを単語の区切りとしてあいまい検索を行うかどうか 1:有効 0:無効(初期値)
-let g:NeoComplCache_EnableUnderbarCompletion = 1
-" 補完の対象となるキーワードの最小長さ
-let g:NeoComplCache_MinSyntaxLength = 3
-" 自動補完を中止するための連続入力時間 初期値0.0
-let g:NeoComplCache_SkipInputTime = '0.2'
-" 手動補完時に補完を行う入力数
-let g:NeoComplCache_ManualCompletionStartLength = 0
-" 補完するためのキーワードパターンを記録する(まだよくわかってない)
-if !exists('g:NeoComplCache_KeywordPatterns')
-    let g:NeoComplCache_KeywordPatterns = {}
-endif
-let g:NeoComplCache_KeywordPatterns['default'] = '\v\h\w*'
-" ユーザが定義したスニペット補完ファイルのパス
-let g:NeoComplCache_SnippetsDir = $HOME.'/snippets'
-
 " Unite
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep if len(getqflist()) != 0 | vs | copen | endif
 nnoremap [unite] <Nop>
@@ -569,8 +541,114 @@ let g:quickrun_config = {
     \ }
 \}
 
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" for snippets
+imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <C-k> <Plug>(neocomplcache_snippets_expand)
+
+"" vim起動時にneocomplcacheを起動するか 1:有効 2:無効(初期値)
+"let g:NeoComplCache_EnableAtStartup = 1
+"" 入力に大文字が含まれている場合は、大文字・小文字を無視しない 1:有効 2:無効(初期値)
+"let g:NeoComplCache_SmartCase = 1
+"" ポップアップメニューで表示される候補の数
+"let g:NeoComplCache_MaxList = 50
+"" 単語の出現頻度だけではなく、前の単語とのつながりも考慮して候補の並び替えを行うかどうか 1:有効(初期値) 0:無効
+"let g:NeoComplCache_PreviousKeywordCompletion = 1
+"" プレビューウインドウが開いているとき、追加情報を表示するかどうか 1:有効 0:無効
+"let g:NeoComplCache_EnableInfo = 1
+"" 大文字を入力したときに、それを単語の区切りとしてあいまい検索を行うかどうか 1:有効 0:無効(初期値)
+"let g:NeoComplCache_EnableCamelCaseCompletion = 1
+"" _を入力したときに、それを単語の区切りとしてあいまい検索を行うかどうか 1:有効 0:無効(初期値)
+"let g:NeoComplCache_EnableUnderbarCompletion = 1
+"" 補完の対象となるキーワードの最小長さ
+"let g:NeoComplCache_MinSyntaxLength = 3
+"" 自動補完を中止するための連続入力時間 初期値0.0
+"let g:NeoComplCache_SkipInputTime = '0.2'
+"" 手動補完時に補完を行う入力数
+"let g:NeoComplCache_ManualCompletionStartLength = 0
+"" 補完するためのキーワードパターンを記録する(まだよくわかってない)
+"if !exists('g:NeoComplCache_KeywordPatterns')
+"    let g:NeoComplCache_KeywordPatterns = {}
+"endif
+"let g:NeoComplCache_KeywordPatterns['default'] = '\v\h\w*'
+"" ユーザが定義したスニペット補完ファイルのパス
+"let g:NeoComplCache_SnippetsDir = $HOME.'/snippets'
+
+"Snippet directory
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
+
 " 実行時に前回の表示内容をクローズ&保存してから実行
 let g:quickrun_no_default_key_mappings = 1
 nmap <Leader>r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
 
-set guifont=Ricty\ 10
+set guifont=Ricty\ 9 
