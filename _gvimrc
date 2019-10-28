@@ -1,4 +1,4 @@
-" txt F‚Â‚¯
+" txt è‰²ã¤ã‘
 if !exists("syntax_on")
 	syntax on
 endif
@@ -15,7 +15,7 @@ augroup ColorSchmeGrp
 	autocmd ColorScheme * call ColorSchemeChg()
 
 	function! ColorSchemeChg()
-		" orig‚ğ“Ç‚İ‚ñ‚¾‚Æ‚«‚Ì‚İ
+		" origã‚’èª­ã¿è¾¼ã‚“ã ã¨ãã®ã¿
 		if g:colors_name == "jellybeans"
 			set number
 			set cursorline
@@ -31,17 +31,17 @@ augroup ColorSchmeGrp
 	endfunction
 augroup END
 
-" ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚Ì‚‚³
+" ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã®é«˜ã•
 set cmdheight=1
 
-" ƒtƒHƒ“ƒgİ’è
-"set guifont=Osaka|“™•:h10:cSHIFTJIS
+" ãƒ•ã‚©ãƒ³ãƒˆè¨­å®š
+"set guifont=Osakaâˆ’ç­‰å¹…:h10:cSHIFTJIS
 set guifont=Myrica_M:h10:cSHIFTJIS:qDRAFT
 
 nnoremap - :ZoomOut<CR>
 nnoremap + :ZoomIn<CR>
 
-" window ƒTƒCƒYİ’è
+" window ã‚µã‚¤ã‚ºè¨­å®š
 augroup WindowSizeMod
 	set lines=45
 	set columns=100
@@ -90,7 +90,7 @@ augroup teraterm
 augroup END
 set title
 
-" ƒ}ƒEƒX‚Ìİ’è
+" ãƒã‚¦ã‚¹ã®è¨­å®š
 set mouse=a
 set ttymouse=xterm2
 set clipboard+=unnamed,autoselect
@@ -107,20 +107,20 @@ set guioptions-=l
 set guioptions-=L
 set noscrollbind
 
-" Tab ‰üs•¶š•\¦
+" Tab æ”¹è¡Œæ–‡å­—è¡¨ç¤º
 "set list
 
 highlight WhitespaceEOL ctermbg=red guibg=#501010
-autocmd VimEnter,WinEnter * 1match WhitespaceEOL /\s\+$/
+autocmd VimEnter,WinEnter * 1match WhitespaceEOL /Â¥sÂ¥+$/
 
 highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
-autocmd VimEnter,WinEnter * 2match ZenkakuSpace /@/
+autocmd VimEnter,WinEnter * 2match ZenkakuSpace /ã€€/
 
 "highlight ExtraSpace ctermbg=blue  guibg=#101050
-"autocmd VimEnter,WinEnter * 3match ExtraSpace /^\t*   \+/
+"autocmd VimEnter,WinEnter * 3match ExtraSpace /^Â¥t*   Â¥+/
 
 function! DeleteEndOfSpaces()
-	exe ':%s;\s\+$;;'
+	exe ':%s;Â¥sÂ¥+$;;'
 endfunction
 command DeleteEOS call DeleteEndOfSpaces()
 
@@ -142,24 +142,24 @@ nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 
-" •¶š—ñƒŠƒeƒ‰ƒ‹‚ğƒgƒOƒ‹
-" string ¨ 'string' ¨ "string" ¨ string...
+" æ–‡å­—åˆ—ãƒªãƒ†ãƒ©ãƒ«ã‚’ãƒˆã‚°ãƒ«
+" string â†’ 'string' â†’ "string" â†’ string...
 "
-" string ‚É‹L†‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡‚Í
-" string ¨ 'string'
-" ‚Ì•ÏŠ·‚Í‚¤‚Ü‚­‚¢‚©‚È‚¢‚©‚à
+" string ã«è¨˜å·ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã¯
+" string â†’ 'string'
+" ã®å¤‰æ›ã¯ã†ã¾ãã„ã‹ãªã„ã‹ã‚‚
 let g:switch_custom_definitions =
-\[
-\   {
-\       'true\c' : 'false',
-\       'TRUE\c' : '\FALSE\c',
-\       'FALSE\c'  : 'TRUE',
-\       'false\c': 'true',
-\		'0' : '1',
-\		'1' : '0',
-\   }
-\ ]
-" ŒÄ‚Ño‚µ—p‚ÌƒL[ƒ}ƒbƒsƒ“ƒO
+Â¥[
+Â¥   {
+Â¥       'trueÂ¥c' : 'false',
+Â¥       'TRUEÂ¥c' : 'Â¥FALSEÂ¥c',
+Â¥       'FALSEÂ¥c'  : 'TRUE',
+Â¥       'falseÂ¥c': 'true',
+Â¥		'0' : '1',
+Â¥		'1' : '0',
+Â¥   }
+Â¥ ]
+" å‘¼ã³å‡ºã—ç”¨ã®ã‚­ãƒ¼ãƒãƒƒãƒ”ãƒ³ã‚°
 "nnoremap ts :<C-u>Switch<CR>
 
 :let g:Align_xstrlen = 3
@@ -171,48 +171,48 @@ highlight Pmenu ctermbg=4
 highlight PmenuSel ctermbg=1
 highlight PMenuSbar ctermbg=4
 
-" •âŠ®ƒEƒBƒ“ƒhƒE‚Ìİ’è
+" è£œå®Œã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®è¨­å®š
 set completeopt=menuone
 
-" rsense‚Å‚Ì©“®•âŠ®‹@”\‚ğ—LŒø‰»
+" rsenseã§ã®è‡ªå‹•è£œå®Œæ©Ÿèƒ½ã‚’æœ‰åŠ¹åŒ–
 let g:rsenseUseOmniFunc = 1
 " let g:rsenseHome = '/usr/local/lib/rsense-0.3'
 
-" auto-ctags‚ğg‚Á‚Äƒtƒ@ƒCƒ‹•Û‘¶‚Étagsƒtƒ@ƒCƒ‹‚ğXV
+" auto-ctagsã‚’ä½¿ã£ã¦ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜æ™‚ã«tagsãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ›´æ–°
 let g:auto_ctags = 1
 
-" ‹N“®‚É—LŒø‰»
+" èµ·å‹•æ™‚ã«æœ‰åŠ¹åŒ–
 let g:neocomplcache_enable_at_startup = 1
 
-" ‘å•¶š‚ª“ü—Í‚³‚ê‚é‚Ü‚Å‘å•¶š¬•¶š‚Ì‹æ•Ê‚ğ–³‹‚·‚é
+" å¤§æ–‡å­—ãŒå…¥åŠ›ã•ã‚Œã‚‹ã¾ã§å¤§æ–‡å­—å°æ–‡å­—ã®åŒºåˆ¥ã‚’ç„¡è¦–ã™ã‚‹
 let g:neocomplcache_enable_smart_case = 1
 
-" _(ƒAƒ“ƒ_[ƒXƒRƒA)‹æØ‚è‚Ì•âŠ®‚ğ—LŒø‰»
+" _(ã‚¢ãƒ³ãƒ€ãƒ¼ã‚¹ã‚³ã‚¢)åŒºåˆ‡ã‚Šã®è£œå®Œã‚’æœ‰åŠ¹åŒ–
 let g:neocomplcache_enable_underbar_completion = 1
 
 let g:neocomplcache_enable_camel_case_completion  =  1
 
-" Å‰‚Ì•âŠ®Œó•â‚ğ‘I‘ğó‘Ô‚É‚·‚é
+" æœ€åˆã®è£œå®Œå€™è£œã‚’é¸æŠçŠ¶æ…‹ã«ã™ã‚‹
 let g:neocomplcache_enable_auto_select = 1
 
-" ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚Å•\¦‚³‚ê‚éŒó•â‚Ì”
+" ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã§è¡¨ç¤ºã•ã‚Œã‚‹å€™è£œã®æ•°
 let g:neocomplcache_max_list = 20
 
-" ƒVƒ“ƒ^ƒbƒNƒX‚ğƒLƒƒƒbƒVƒ…‚·‚é‚Æ‚«‚ÌÅ¬•¶š’·
+" ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã™ã‚‹ã¨ãã®æœ€å°æ–‡å­—é•·
 let g:neocomplcache_min_syntax_length = 3
 
-" •âŠ®‚Ìİ’è
+" è£œå®Œã®è¨­å®š
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+let g:neocomplete#force_omni_input_patterns.ruby = '[^.*Â¥t]Â¥.Â¥w*Â¥|Â¥hÂ¥w*::'
 
 if !exists('g:neocomplete#keyword_patterns')
         let g:neocomplete#keyword_patterns = {}
 endif
 
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#keyword_patterns['default'] = 'Â¥hÂ¥w*'
 
 let g:syntastic_mode_map = { 'mode': 'passive' }
 augroup AutoSyntastic

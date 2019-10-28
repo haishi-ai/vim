@@ -2,10 +2,10 @@ set nocompatible
 set backspace=indent,eol,start
 set textwidth=0
 
-" CƒCƒ“ƒfƒ“ƒg
+" Cã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆ
 set cindent
 
-" ©“®ƒCƒ“ƒfƒ“ƒg
+" è‡ªå‹•ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆ
 set autoindent
 
 set ambiwidth=double
@@ -13,36 +13,36 @@ set ambiwidth=double
 set noerrorbells
 set visualbell
 
-" •âŠ®‚ğTab‚Ås‚¤
+" è£œå®Œã‚’Tabã§è¡Œã†
 set wildchar=<TAB>
 set wildmenu
 set wildmode=list:longest,full
 
 set magic
 
-" Š‡ŒÊ“ü—Í‚Ì‘Î‰‚·‚éŠ‡ŒÊ‚ğ•\¦
+" æ‹¬å¼§å…¥åŠ›æ™‚ã®å¯¾å¿œã™ã‚‹æ‹¬å¼§ã‚’è¡¨ç¤º
 set showmatch
 
-" ¡g‚Á‚Ä‚¢‚éƒ‚[ƒh‚ğ•\¦‚·‚é
+" ä»Šä½¿ã£ã¦ã„ã‚‹ãƒ¢ãƒ¼ãƒ‰ã‚’è¡¨ç¤ºã™ã‚‹
 set showmode
 
-" “ü—Í’†‚ÌƒRƒ}ƒ“ƒh‚ğƒXƒe[ƒ^ƒX‚É•\¦‚·‚é
+" å…¥åŠ›ä¸­ã®ã‚³ãƒãƒ³ãƒ‰ã‚’ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã«è¡¨ç¤ºã™ã‚‹
 set showcmd
 
-" “\•t‚¯
+" è²¼ä»˜ã‘æ™‚
 "set paste
 
-" ƒm[ƒ}ƒ‹ƒ‚[ƒh‚É©“®‚Åƒy[ƒXƒgƒ‚[ƒh‚ğ‰ğœ‚·‚é
+" ãƒãƒ¼ãƒãƒ«ãƒ¢ãƒ¼ãƒ‰æ™‚ã«è‡ªå‹•ã§ãƒšãƒ¼ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰ã‚’è§£é™¤ã™ã‚‹
 autocmd InsertLeave * set nopaste
 
-" tab•¶šİ’è
-set listchars=tab:^\ ,extends:<,trail:-,eol:<
+" tabæ–‡å­—è¨­å®š
+set listchars=tab:^Â¥ ,extends:<,trail:-,eol:<
 
-" tab/‰üs •\¦‚È‚Ç‚È‚Ç
+" tab/æ”¹è¡Œ è¡¨ç¤ºãªã©ãªã©
 "set list
 
 augroup dein
-	" dein.vim –{‘Ì
+	" dein.vim æœ¬ä½“
 	let bundledir = $VIM . '/bundles/dein'
 	let s:dein_dir = bundledir. '/repos/github.com/Shougo/dein.vim'
 
@@ -56,19 +56,19 @@ augroup dein
 	if dein#load_state(s:dein_dir)
 		call dein#begin(s:dein_dir)
 		call dein#add('Shougo/neosnippet.vim')
-		" neobundle ‚Ìİ’è
+		" neobundle ã®è¨­å®š
 		call dein#add('Shougo/dein.vim')
 
 		" ==================== plugins ===============================
-		call dein#add('Shougo/unite.vim') " ƒtƒ@ƒCƒ‹‘€ì‚Æ‚©
-		call dein#add('Shougo/neocomplete.vim') " •âŠ®
-		call dein#add('Shougo/neosnippet.vim') " ƒXƒjƒyƒbƒg
-		call dein#add('Shougo/neosnippet-snippets') " ƒXƒjƒyƒbƒg
-		call dein#add('itchyny/lightline.vim') " î•ñ‚ğŒ©‚â‚·‚­
-		call dein#add('nathanaelkane/vim-indent-guides') " ƒCƒ“ƒfƒ“ƒg‚ğF•ª‚¯
-		call dein#add('Townk/vim-autoclose') " ƒJƒbƒR‚ğ©“®‚Å•Â‚¶‚é
-		call dein#add('honza/vim-snippets') " ƒXƒjƒyƒbƒg
-		call dein#add('ujihisa/neco-look') " ‰p’PŒê‚Ì•âŠ®
+		call dein#add('Shougo/unite.vim') " ãƒ•ã‚¡ã‚¤ãƒ«æ“ä½œã¨ã‹
+		call dein#add('Shougo/neocomplete.vim') " è£œå®Œ
+		call dein#add('Shougo/neosnippet.vim') " ã‚¹ãƒ‹ãƒšãƒƒãƒˆ
+		call dein#add('Shougo/neosnippet-snippets') " ã‚¹ãƒ‹ãƒšãƒƒãƒˆ
+		call dein#add('itchyny/lightline.vim') " æƒ…å ±ã‚’è¦‹ã‚„ã™ã
+		call dein#add('nathanaelkane/vim-indent-guides') " ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’è‰²åˆ†ã‘
+		call dein#add('Townk/vim-autoclose') " ã‚«ãƒƒã‚³ã‚’è‡ªå‹•ã§é–‰ã˜ã‚‹
+		call dein#add('honza/vim-snippets') " ã‚¹ãƒ‹ãƒšãƒƒãƒˆ
+		call dein#add('ujihisa/neco-look') " è‹±å˜èªã®è£œå®Œ
 		call dein#add('nanotech/jellybeans.vim')
 		call dein#add('tomtom/tcomment_vim')
 		call dein#add('thinca/vim-quickrun')
@@ -99,7 +99,7 @@ augroup dein
 augroup END
 
 augroup Temp
-	" ƒeƒ“ƒ|ƒ‰ƒŠƒtƒ@ƒCƒ‹
+	" ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ•ã‚¡ã‚¤ãƒ«
 	set viminfo+=f1
 
 	let vimdir = $VIM
@@ -129,25 +129,25 @@ augroup Temp
 augroup END
 
 "=====================================
-" Ü‚è‚½‚½‚İİ’è
+" æŠ˜ã‚ŠãŸãŸã¿è¨­å®š
 "=====================================
 augroup Folding
 	set foldmethod=expr
 	"set commentstring=%s
 	set foldtext=FoldCCtext()
 	set foldcolumn=0
-	set fillchars=vert:\|
+	set fillchars=vert:Â¥|
 
 	"autocmd BufEnter *.[ch],*.cc set foldmethod=expr foldexpr=CFoldSetting(v:lnum)
 	autocmd BufEnter *.[ch],*.cc,*.cpp set foldmethod=expr foldexpr=CFoldSetting(v:lnum)
 
 	function! CFoldSetting(lnum)
 		let l:line = getline(a:lnum)
-		if l:line =~ '^#if 0'
+		if l:line =â€¾ '^#if 0'
 			return '>1'
-		elseif getline(a:lnum - 1) =~ '^#else'
+		elseif getline(a:lnum - 1) =â€¾ '^#else'
 			return 0
-		elseif getline(a:lnum) =~ '^#endif'
+		elseif getline(a:lnum) =â€¾ '^#endif'
 			return '<1'
 		else
 			return '='
@@ -155,7 +155,7 @@ augroup Folding
 	endfunction
 augroup END
 
-" USƒL[ƒ{[ƒh—pİ’è
+" USã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ç”¨è¨­å®š
 augroup Keyboard
 	function! HardMode ()
 		noremap  <Up>	<Nop>
@@ -180,13 +180,13 @@ augroup Keyboard
 	endfunction
 
 	function! USKeyboard()
-		" ' ‚Æ : ‚ğ“ü‚ê‘Ö‚¦
+		" ' ã¨ : ã‚’å…¥ã‚Œæ›¿ãˆ
 		nnoremap ' :
 		nnoremap : '
 	endfunction
 
 	function! JPKeyboard()
-		" ' ‚Æ : ‚ğ“ü‚ê‘Ö‚¦
+		" ' ã¨ : ã‚’å…¥ã‚Œæ›¿ãˆ
 		nnoremap ' '
 		nnoremap : :
 	endfunction
@@ -197,89 +197,89 @@ augroup Keyboard
 	command! UseJPKeyboard call JPKeyboard()
 augroup END
 
-" ƒfƒtƒHƒ‹ƒg‚Íhardƒ‚[ƒh(*LÍM*)
+" ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯hardãƒ¢ãƒ¼ãƒ‰(*Â´âˆ€ï½€*)
 ":HardMode
 :EasyMode
 :UseUSKeyboard
 
 "=======================================================
-" •Ï”
+" å¤‰æ•°
 "=======================================================
-let $DT = $HOME . '\Desktop'
-"let $WORK = 'C:;gcwork\20_SVN\I1364\trunk\27_ƒvƒƒOƒ‰ƒ€ƒ\[ƒX\IPTool\IPTool\IPTool'
-"let $WORK = 'C:\work\20_SVN\GD591_master\40_À‘•\10_ƒ\[ƒXƒR[ƒh\IPTool\IPTool'
-let $WORK='C:\work\20_SVN\GD591_master\40_À‘•\10_ƒ\[ƒXƒR[ƒh\branch\IPTOOL_PSD_BRANCH\IPTool'
-let $OPENCV='C:\work\20_SVN\GD591_master\40_À‘•\10_ƒ\[ƒXƒR[ƒh\IPTool\opencv\sources'
-let $WORK='C:\work\20_proj\21_Git\aisin-pedestrian-detection\train'
+let $DT = $HOME . 'Â¥Desktop'
+"let $WORK = 'C:;gcworkÂ¥20_SVNÂ¥I1364Â¥trunkÂ¥27_ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚½ãƒ¼ã‚¹Â¥IPToolÂ¥IPToolÂ¥IPTool'
+"let $WORK = 'C:Â¥workÂ¥20_SVNÂ¥GD591_masterÂ¥40_å®Ÿè£…Â¥10_ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰Â¥IPToolÂ¥IPTool'
+let $WORK='C:Â¥workÂ¥20_SVNÂ¥GD591_masterÂ¥40_å®Ÿè£…Â¥10_ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰Â¥branchÂ¥IPTOOL_PSD_BRANCHÂ¥IPTool'
+let $OPENCV='C:Â¥workÂ¥20_SVNÂ¥GD591_masterÂ¥40_å®Ÿè£…Â¥10_ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰Â¥IPToolÂ¥opencvÂ¥sources'
+let $WORK='C:Â¥workÂ¥20_projÂ¥21_GitÂ¥aisin-pedestrian-detectionÂ¥train'
 
 augroup StatusLine
 	"=====================================
-	" ƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚Ì•\¦€–Ú
+	" ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã®è¡¨ç¤ºé …ç›®
 	"=====================================
-	" [%n]  :•ÒWƒtƒ@ƒCƒ‹”Ô†
-	" [%t]  :ƒtƒ@ƒCƒ‹–¼
-	" [%f]  :ƒtƒ@ƒCƒ‹–¼
-	" [%F]  :ƒtƒ@ƒCƒ‹–¼(ƒtƒ‹ƒpƒX)
-	" [%]	:ƒtƒ@ƒCƒ‹‚Ìí—Ş
-	" [0x%B]:•¶šƒR[ƒh
-	" [%]	:‰üsƒR[ƒh
-	" [%c]  :ƒJƒ‰ƒ€
-	" [%V]  :ƒJƒ‰ƒ€(‹ós‚Ì‚Æ‚«"-1"‚ğ•\¦)
-	" [%l]  :s”Ô†
-	" [%p]  :sˆÊ’u(•S•ª—¦)
-	" [%3p] :sˆÊ’u(3Œ…ŒÅ’è•S•ª—¦)
-	" [%P]  :sˆÊ’u(æ“ª:Top,“r’†:•S•ª—¦(%),––”ö:Bot,‘S•\¦:All)
-	" [%m]  :C³ƒ}[ƒN([+])
+	" [%n]  :ç·¨é›†ãƒ•ã‚¡ã‚¤ãƒ«ç•ªå·
+	" [%t]  :ãƒ•ã‚¡ã‚¤ãƒ«å
+	" [%f]  :ãƒ•ã‚¡ã‚¤ãƒ«å
+	" [%F]  :ãƒ•ã‚¡ã‚¤ãƒ«å(ãƒ•ãƒ«ãƒ‘ã‚¹)
+	" [%]	:ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡
+	" [0x%B]:æ–‡å­—ã‚³ãƒ¼ãƒ‰
+	" [%]	:æ”¹è¡Œã‚³ãƒ¼ãƒ‰
+	" [%c]  :ã‚«ãƒ©ãƒ 
+	" [%V]  :ã‚«ãƒ©ãƒ (ç©ºè¡Œã®ã¨ã"-1"ã‚’è¡¨ç¤º)
+	" [%l]  :è¡Œç•ªå·
+	" [%p]  :è¡Œä½ç½®(ç™¾åˆ†ç‡)
+	" [%3p] :è¡Œä½ç½®(3æ¡å›ºå®šç™¾åˆ†ç‡)
+	" [%P]  :è¡Œä½ç½®(å…ˆé ­:Top,é€”ä¸­:ç™¾åˆ†ç‡(%),æœ«å°¾:Bot,å…¨è¡¨ç¤º:All)
+	" [%m]  :ä¿®æ­£ãƒãƒ¼ã‚¯([+])
 	" [%%]  :"%"
-	" [%=]  :‰EŠñ‚¹
+	" [%=]  :å³å¯„ã›
 	" [%<]  :???
 	" [%r]  :???
 	" [%h]  :???
 	" [%w]  :???
-	" [\ ]  :ƒXƒy[ƒX
-	" [%5(\ %)\ ]  :ƒXƒy[ƒX~5
-	"set statusline=[%m]%y%{GetStatus()}%F%m%r%=<%c-%l/%L>%5(\ %)%3p%%
+	" [Â¥ ]  :ã‚¹ãƒšãƒ¼ã‚¹
+	" [%5(Â¥ %)Â¥ ]  :ã‚¹ãƒšãƒ¼ã‚¹Ã—5
+	"set statusline=[%m]%y%{GetStatus()}%F%m%r%=<%c-%l/%L>%5(Â¥ %)%3p%%
 	set laststatus=2
 
 	let g:lightline = {
-		\ 'colorscheme' : 'wombat',
-		\ 'mode_map'	: {'c': 'NORMAL'},
-	  	\ 'separator'	: {'left': "", 'right': ""},
-	  	\ 'subseparator': {'left': "", 'right': ""},
-		\ 'active': {
-		\	'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-		\ },
-		\ 'component_function': {
-		\	'modified'	 : 'LightlineModified',
-		\	'readonly'	 : 'LightlineReadonly',
-		\	'fugitive'	 : 'LightlineFugitive',
-		\	'filename'	 : 'LightlineFilename',
-		\	'fileformat' : 'LightlineFileformat',
-		\	'filetype'	 : 'LightlineFiletype',
-		\	'fileencoding' : 'LightlineFileencoding',
-		\	'mode'		 : 'LightlineMode'
-		\}
-	\ }
+		Â¥ 'colorscheme' : 'wombat',
+		Â¥ 'mode_map'	: {'c': 'NORMAL'},
+	  	Â¥ 'separator'	: {'left': "", 'right': ""},
+	  	Â¥ 'subseparator': {'left': "", 'right': ""},
+		Â¥ 'active': {
+		Â¥	'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+		Â¥ },
+		Â¥ 'component_function': {
+		Â¥	'modified'	 : 'LightlineModified',
+		Â¥	'readonly'	 : 'LightlineReadonly',
+		Â¥	'fugitive'	 : 'LightlineFugitive',
+		Â¥	'filename'	 : 'LightlineFilename',
+		Â¥	'fileformat' : 'LightlineFileformat',
+		Â¥	'filetype'	 : 'LightlineFiletype',
+		Â¥	'fileencoding' : 'LightlineFileencoding',
+		Â¥	'mode'		 : 'LightlineMode'
+		Â¥}
+	Â¥ }
 
 	function! LightlineModified()
-	  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+	  return &ft =â€¾ 'helpÂ¥|vimfilerÂ¥|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 	endfunction
 
 	function! LightlineReadonly()
-	  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+	  return &ft !â€¾? 'helpÂ¥|vimfilerÂ¥|gundo' && &readonly ? 'x' : ''
 	endfunction
 
 	function! LightlineFilename()
 	  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-			\ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-			\  &ft == 'unite' ? unite#get_status_string() :
-			\  &ft == 'vimshell' ? vimshell#get_status_string() :
-			\ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-			\ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+			Â¥ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+			Â¥  &ft == 'unite' ? unite#get_status_string() :
+			Â¥  &ft == 'vimshell' ? vimshell#get_status_string() :
+			Â¥ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+			Â¥ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
 	endfunction
 
 	function! LightlineFugitive()
-	  if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+	  if &ft !â€¾? 'vimfilerÂ¥|gundo' && exists('*fugitive#head')
 		return fugitive#head()
 	  else
 		return ''
@@ -302,7 +302,7 @@ augroup StatusLine
 	  return winwidth(0) > 60 ? lightline#mode() : ''
 	endfunction
 
-	" ƒtƒ@ƒCƒ‹ƒtƒH[ƒ}ƒbƒg••¶šƒGƒ“ƒR[ƒfƒBƒ“ƒO•‰üsƒR[ƒhæ“¾
+	" ãƒ•ã‚¡ã‚¤ãƒ«ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆï¼†æ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ï¼†æ”¹è¡Œã‚³ãƒ¼ãƒ‰å–å¾—
 	function! GetStatus()
 		let str = &fileformat . ']'
 		if has('multi_byte') && &fileencoding != ''
@@ -321,16 +321,16 @@ augroup keybind
 	nnoremap x "_x
 	nnoremap D "_D
 
-	" tagƒWƒƒƒ“ƒvİ’è
+	" tagã‚¸ãƒ£ãƒ³ãƒ—è¨­å®š
 	nnoremap <silent> <C-]> g<C-]>
 	nnoremap <silent> <C-LeftMouse> g<C-]>
 
-	" ESC‚ÅƒnƒCƒ‰ƒCƒgƒT[ƒ`‰ğœ
+	" ESCã§ãƒã‚¤ãƒ©ã‚¤ãƒˆã‚µãƒ¼ãƒè§£é™¤
 	nnoremap <silent> <ESC> :<C-w>nohlsearch<CR><ESC>
 	inoremap <silent> <ESC> <ESC>:<C-w>nohlsearch<CR>
 
 	"=======================================================
-	"tabİ’è
+	"tabè¨­å®š
 	"=======================================================
 	nnoremap <silent> tt :<C-w>tabnew<CR>
 	nnoremap <silent> tn :<C-w>tabnext<CR>
@@ -348,7 +348,7 @@ augroup keybind
 	nnoremap <silent> <F11>	:<C-w>edit $WORK<CR>
 	nnoremap <silent> <F12>	:<C-w>edit $OPENCV<CR>
 
-	" ’uŠ·ƒVƒ‡[ƒgƒJƒbƒg
+	" ç½®æ›ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆ
 	nnoremap gs :%s;;;gc<left><left><left><left>
 	vnoremap gs :s;;;gc<left><left><left><left>
 
@@ -358,7 +358,7 @@ augroup keybind
 	nnoremap gx <Plug>(openbrowser-smart-search)
 	vnoremap gx <Plug>(openbrowser-smart-search)
 
-	inoremap <silent> <expr><C-a>  search('^\s\s*\%#', 'bcn') ? "\<C-o>0" : "\<C-o>^"
+	inoremap <silent> <expr><C-a>  search('^Â¥sÂ¥s*Â¥%#', 'bcn') ? "Â¥<C-o>0" : "Â¥<C-o>^"
 	nnoremap <silent> <C-j> <C-w>j
 	nnoremap <silent> <C-h> <C-w>h
 	nnoremap <silent> <C-k> <C-w>k
@@ -374,9 +374,9 @@ colorscheme jellybeans
 execute "set colorcolumn=" . join(range(81, 9999), ',')
 
 " taglist
-let Tlist_Show_One_File = 1 "Œ»İ•ÒW’†‚Ìƒ\[ƒX‚Ìƒ^ƒO‚µ‚©•\¦‚µ‚È‚¢
-let Tlist_Exit_OnlyWiindow = 1 "taglist ‚ªÅŒã‚ÌƒEƒCƒ“ƒhƒE‚È‚ç vim ‚ğ•Â‚¶‚é
-"let Tlist_Enable_Fold_Column = 1 " Ü‚èô‚İ
+let Tlist_Show_One_File = 1 "ç¾åœ¨ç·¨é›†ä¸­ã®ã‚½ãƒ¼ã‚¹ã®ã‚¿ã‚°ã—ã‹è¡¨ç¤ºã—ãªã„
+let Tlist_Exit_OnlyWiindow = 1 "taglist ãŒæœ€å¾Œã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãªã‚‰ vim ã‚’é–‰ã˜ã‚‹
+"let Tlist_Enable_Fold_Column = 1 " æŠ˜ã‚Šç•³ã¿
 map <silent> <leader>tl :TlistToggle<CR>
 
 let g:tlist_php_settings = 'php;c:class;d:constant;f:function'
